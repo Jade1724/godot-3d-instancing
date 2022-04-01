@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://LollyShop.gd" type="Script" id=1]
+[ext_resource path="res://Lolly.tscn" type="PackedScene" id=2]
+
+[sub_resource type="CubeMesh" id=1]
+
+[sub_resource type="Curve3D" id=2]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -2.01608, 0.552047, -0.740052, 0, 0, 0, 0, 0, 0, -2.19967, 0.554456, 0.556506, 0, 0, 0, 0, 0, 0, 2.01494, 0.550213, 0.454063, 0, 0, 0, 0, 0, 0, 2.02908, 0.541882, -0.639286, 0, 0, 0, 0, 0, 0, -2.01811, 0.516905, -0.580101, 0, 0, 0, 0, 0, 0, -2.01608, 0.552047, -0.740052 ),
+"tilts": PoolRealArray( 0, 0, 0, 0, 0, 0 )
+}
+
+[node name="LollyShop" type="Spatial"]
+script = ExtResource( 1 )
+Lolly = ExtResource( 2 )
+
+[node name="LollyStandPivot" type="Spatial" parent="."]
+
+[node name="MeshInstance" type="MeshInstance" parent="LollyStandPivot"]
+transform = Transform( 2.46623, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.02416, 0 )
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="Path" type="Path" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.50859, 0 )
+curve = SubResource( 2 )
+
+[node name="PathFollow" type="PathFollow" parent="Path"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.01608, 0.552047, -0.740052 )
